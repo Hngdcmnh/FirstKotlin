@@ -30,10 +30,7 @@ class RecyclerViewAdapter1(var listTeam :ArrayList<TeamSquad>):RecyclerView.Adap
 
         v.setOnClickListener{
             Log.e("Keyy",listTeam[position].name)
-            thread {
-                Model.getTeamSquad(listTeam[position].name)
 
-            }
 
         }
     }

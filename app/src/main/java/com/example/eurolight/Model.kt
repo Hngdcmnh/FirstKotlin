@@ -21,17 +21,17 @@ object Model
             val flagUrl :String = team.getElementsByTag("a")[0].getElementsByTag("img")[0].absUrl("data-srcset").toString()
             Log.e("Key2",flagUrl)
             /*val flagUrl ="d"*/
-            var list1:ArrayList<Player> = getTeamSquad(name)
+//            var list1:ArrayList<Player> = getTeamSquad(name)
+            var list1:ArrayList<Player> = ArrayList()
             Log.e("Key3", list1.size.toString())
             listTeamSquad.add(TeamSquad(name,list1,flagUrl))
-
         }
 
-        getTeamSquad("Austria")
+        getTeamSquad()
 
     }
 
-    fun getTeamSquad(teamName:String): ArrayList<Player> {
+    fun getTeamSquad(): ArrayList<Player> {
         for(team1 in listTeamSquad)
         {
             team1.players = when(team1.name)
@@ -46,7 +46,7 @@ object Model
 
                 else -> ArrayList()
             }
-            return team1.players
+
         }
         return ArrayList()
     }
@@ -77,7 +77,7 @@ object Model
                     4 ->{"Coach"}
                     else ->"Coach"
                 }
-                Log.e("Player", imgUrl)
+//                Log.e("Player", name +" "+imgUrl)
 
                 var player1:Player = Player(name,imgUrl,position,number)
                 listPlayers.add(player1)

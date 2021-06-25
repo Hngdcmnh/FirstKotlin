@@ -29,7 +29,7 @@ class Fragment_player : Fragment() {
 
 
         var recyclerView : RecyclerView = view.findViewById(R.id.RecyclerViewPlayer)
-        var recyclerViewPlayerAdapter = RecyclerViewPlayerAdapter(Model.listTeamSquad[1].players)
+        var recyclerViewPlayerAdapter = RecyclerViewPlayerAdapter(Model.listTeamSquad[0].players)
 
         var linearLayoutManager = LinearLayoutManager(this.context)
 
