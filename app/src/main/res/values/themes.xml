@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.EuroLight" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorAccent">#FFFF33</item>
+        <item name="colorPrimary">#000000</item>
+
+        <item name="android:actionBarSize">50dp</item>
+
+    </style>
+
+
+</resources>
