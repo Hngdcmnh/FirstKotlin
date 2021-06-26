@@ -22,7 +22,7 @@ class FragmentTeam : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var recyclerView : RecyclerView = view.findViewById(R.id.recyclerViewTeam)
-        var recyclerViewAdapter1 = RecyclerViewTeamAdapter(Model.listTeamSquad,{ (activity as MainActivity).passData(it) })
+        var recyclerViewAdapter1 = RecyclerViewTeamAdapter(Model.listTeam,{ (activity as MainActivity).passData(it) })
 
         /*if(recyclerViewAdapter1!=null )
         {

@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity(),Comunicator {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        var fragment_2 = FragmentMatch()
+        supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_2).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
         navView.setNavigationItemSelectedListener {
             when(it.itemId)
             {
@@ -38,8 +39,8 @@ class MainActivity : AppCompatActivity(),Comunicator {
                     supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
                 }
                 R.id.item2-> {
-//                    var fragment_2 = Fragment_player()
-//                    supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_2).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                    var fragment_2 = FragmentMatch()
+                    supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_2).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
                 }
                 R.id.item3-> Log.e("Key3","3")
             }
@@ -60,7 +61,7 @@ class MainActivity : AppCompatActivity(),Comunicator {
     fun loadData()
     {
         thread {
-            Model.getAllTeam()
+            Model.getData()
 
         }
     }

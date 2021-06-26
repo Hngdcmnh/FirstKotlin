@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_1"
+    android:id="@+id/fragmentMatch"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
@@ -25,9 +25,9 @@
         app:layout_constraintVertical_bias="1.0">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewTeam"
-            android:layout_width="350dp"
-            android:layout_height="578dp"
+            android:id="@+id/recyclerViewMatch"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.483"
@@ -35,6 +35,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
             android:divider="@android:color/transparent"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             >
 
         </androidx.recyclerview.widget.RecyclerView>
@@ -47,7 +50,7 @@
         android:layout_height="60dp"
         android:background="@drawable/rounded_conner_41"
         android:gravity="center"
-        android:text="TEAMS"
+        android:text="MATCHS"
         android:textColor="#ECECEC"
         android:textSize="30dp"
         android:textStyle="bold"

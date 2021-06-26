@@ -1,6 +1,6 @@
 package com.example.eurolight
 
-class TeamSquad {
+class Team {
     lateinit var name: String
     lateinit var players: ArrayList<Player>
     lateinit var FlagUrl: String

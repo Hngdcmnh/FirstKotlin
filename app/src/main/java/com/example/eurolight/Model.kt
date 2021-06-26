@@ -6,7 +6,16 @@ import org.jsoup.Jsoup
 object Model
 {
 
-    var listTeamSquad: ArrayList<TeamSquad> = ArrayList()
+    var listTeam: ArrayList<Team> = ArrayList()
+    var listMatch:ArrayList<Match> = ArrayList()
+
+    fun getData()
+    {
+        getAllTeam()
+        getTeamSquad()
+        getMatchRound16()
+
+    }
 
     fun getAllTeam() {
         val doc = Jsoup.connect("https://www.uefa.com/uefaeuro-2020/teams/").get()
@@ -14,25 +23,27 @@ object Model
         val teamWrapper = doc.getElementsByClass("teams-overview_teams-wrapper")[0]
         val listTeam = teamWrapper.getElementsByClass("team team-is-team")
 
+        var x =0
         for(team in listTeam)
         {
             val name :String = team.getElementsByTag("a")[0].attr("title").toString()
-            Log.e("Key1",name)
+            Log.e("Key1",name )
             val flagUrl :String = team.getElementsByTag("a")[0].getElementsByTag("img")[0].absUrl("data-srcset").toString()
-            Log.e("Key2",flagUrl)
+//            Log.e("Key2",flagUrl)
             /*val flagUrl ="d"*/
 //            var list1:ArrayList<Player> = getTeamSquad(name)
             var list1:ArrayList<Player> = ArrayList()
-            Log.e("Key3", list1.size.toString())
-            listTeamSquad.add(TeamSquad(name,list1,flagUrl))
+
+            this.listTeam.add(Team(name,list1,flagUrl))
+            Log.e("Key3",x.toString())
+            x++
         }
 
-        getTeamSquad()
 
     }
 
-    fun getTeamSquad(): ArrayList<Player> {
-        for(team1 in listTeamSquad)
+    fun getTeamSquad() {
+        for(team1 in listTeam)
         {
             team1.players = when(team1.name)
             {
@@ -56,9 +67,7 @@ object Model
 
                 else -> ArrayList()
             }
-
         }
-        return ArrayList()
     }
 
     fun getPlayerFromWeb(webUrl:String): ArrayList<Player> {
@@ -87,7 +96,7 @@ object Model
                     4 ->{"Coach"}
                     else ->"Coach"
                 }
-               Log.e("Player", name +" "+imgUrl)
+//               Log.e("Player", name +" "+imgUrl)
 
                 var player1:Player = Player(name,imgUrl,position,number)
                 listPlayers.add(player1)
@@ -97,8 +106,49 @@ object Model
         return listPlayers
     }
 
+    fun getTeamHasName(nameTeam:String) :Team
+    {
+        var teamX = Team()
+        for(team in listTeam)
+        {
+            if(team.name==nameTeam) return team
+        }
+        return teamX
+    }
 
+    fun getMatchRound16()
+    {
+        listMatch.add(Match(listTeam[15],listTeam[4],"26/6/2021","23h:00"))
+        listMatch.add(Match(listTeam[8],listTeam[0],"27/6/2021","2h:00"))
+        listMatch.add(Match(listTeam[9],listTeam[3],"27/6/2021","23h:00"))
+        listMatch.add(Match(listTeam[1],listTeam[10],"28/6/2021","2h:00"))
+        listMatch.add(Match(listTeam[2],listTeam[11],"28/6/2021","23h:00"))
+        listMatch.add(Match(listTeam[6],listTeam[13],"29/6/2021","2h:00"))
+        listMatch.add(Match(listTeam[5],listTeam[7],"29/6/2021","23h:00"))
+        listMatch.add(Match(listTeam[12],listTeam[14],"30/6/2021","2h:00"))
 
+//        val doc = Jsoup.connect("https://www.uefa.com/uefaeuro-2020/fixtures-results/#/rd/2001025").get()
+//        val matchWrapper = doc.getElementsByClass("tab-content js-calendar-container ")/*[0].getElementsByClass("matches-list")*/
+//        Log.e("KEYE",matchWrapper.size.toString())
+//
+//        val listMatchWeb = matchWrapper[0].getElementsByTag("div")[0].getElementsByTag("div")
+//
+//        if(listMatchWeb!=null) Log.e("KEYE",listMatchWeb+"000")
+//
+//        for(match1 in listMatchWeb)
+//        {
+//            Log.e("KEYY","HAY")
+//            var inforMatch = match1.getElementsByTag("a")[0].getElementsByClass("match-row_match d3-plugin")[0].getElementsByClass("match-row_match d3-plugin")[0]
+//            var twoTeams :String = match1.getElementsByTag("meta")[0].attr("content")
+//            var matchday :String  = match1.getElementsByTag("meta")[2].attr("content")
+//            var matchHour:String = "23:00"
+//            var nameTeam1 :String = inforMatch.getElementsByClass("team-home is-team ")[0].getElementsByTag("img")[0].attr("title")
+//            var nameTeam2 :String = inforMatch.getElementsByClass("team-away is-team ")[0].getElementsByTag("img")[0].attr("title")
+//            Log.e("Keyyyyy",nameTeam1+" "+nameTeam2)
+//            listMatch.add(Match(getTeamHasName(nameTeam1), getTeamHasName(nameTeam2),matchday,matchHour))
+//        }
+
+    }
 
 
 

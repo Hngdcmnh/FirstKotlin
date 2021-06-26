@@ -1,15 +1,12 @@
 package com.example.eurolight
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlin.concurrent.thread
 
 
 class FragmentPlayer : Fragment() {
@@ -27,7 +24,7 @@ class FragmentPlayer : Fragment() {
         var nameTeam = arguments?.getString("nameTeam")
 
         var recyclerView : RecyclerView = view.findViewById(R.id.RecyclerViewPlayer)
-        var recyclerViewPlayerAdapter = RecyclerViewPlayerAdapter(Model.listTeamSquad[nameTeam?.toInt()!!].players)
+        var recyclerViewPlayerAdapter = RecyclerViewPlayerAdapter(Model.listTeam[nameTeam?.toInt()!!].players)
 
 //        var linearLayoutManager = LinearLayoutManager(this.context)
         var linearLayoutManager = GridLayoutManager(this.context,2)
