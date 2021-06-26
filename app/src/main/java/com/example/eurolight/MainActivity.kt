@@ -3,12 +3,10 @@ package com.example.eurolight
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import kotlin.concurrent.thread
@@ -36,7 +34,7 @@ class MainActivity : AppCompatActivity(),Comunicator {
             {
                 R.id.item1-> {
 
-                    var fragment_1 = Fragment_1()
+                    var fragment_1 = FragmentTeam()
                     supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
                 }
                 R.id.item2-> {
@@ -72,7 +70,7 @@ class MainActivity : AppCompatActivity(),Comunicator {
         bundle.putString("nameTeam",nameTeam)
 
         val transaction = this.supportFragmentManager.beginTransaction()
-        val fragment_2 = Fragment_player()
+        val fragment_2 = FragmentPlayer()
         fragment_2.arguments = bundle
 
         transaction.replace(R.id.frl_main,fragment_2).addToBackStack(null).commit()

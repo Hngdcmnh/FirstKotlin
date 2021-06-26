@@ -1,31 +1,28 @@
 package com.example.eurolight
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 
 
-class Fragment_1 : Fragment() {
+class FragmentTeam : Fragment() {
 
     private lateinit var comunicator: Comunicator
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_1, container, false)
+        return inflater.inflate(R.layout.fragment_team, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         var recyclerView : RecyclerView = view.findViewById(R.id.recyclerViewTeam)
-        var recyclerViewAdapter1 = RecyclerViewAdapter1(Model.listTeamSquad,{ (activity as MainActivity).passData(it) })
+        var recyclerViewAdapter1 = RecyclerViewTeamAdapter(Model.listTeamSquad,{ (activity as MainActivity).passData(it) })
 
         /*if(recyclerViewAdapter1!=null )
         {

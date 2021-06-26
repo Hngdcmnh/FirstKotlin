@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlin.concurrent.thread
 
 
-class Fragment_player : Fragment() {
+class FragmentPlayer : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

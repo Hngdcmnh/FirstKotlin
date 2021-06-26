@@ -6,13 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import kotlin.concurrent.thread
 
-class RecyclerViewAdapter1(var listTeam :ArrayList<TeamSquad>,val comunity : (teamName: String) -> Unit  ):RecyclerView.Adapter<RecyclerViewAdapter1.ViewHolder>() {
+class RecyclerViewTeamAdapter(var listTeam :ArrayList<TeamSquad>, val comunity : (teamName: String) -> Unit  ):RecyclerView.Adapter<RecyclerViewTeamAdapter.ViewHolder>() {
     lateinit var v:View
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
