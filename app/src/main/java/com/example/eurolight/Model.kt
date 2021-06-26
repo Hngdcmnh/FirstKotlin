@@ -42,7 +42,17 @@ object Model
                 "Czech Republic"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/58837--czech-republic/")}
                 "Denmark"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/35--denmark/")}
                 "England"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/39--england/")}
-                "Finland"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/42--finland/")}
+//                "Finland"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/42--finland/")}
+                "France"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/43--france/")}
+                "Germany"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/47--germany/")}
+                "Italy"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/66--italy/")}
+                "Netherlands"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/95--netherlands/")}
+                "Portugal"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/110--portugal/")}
+                "Spain"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/110--portugal/")}
+                "Sweden"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/127--sweden/")}
+                "Switzerland"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/128--switzerland/")}
+                "Ukraine"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/57166--ukraine/")}
+                "Wales"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/144--wales/")}
 
                 else -> ArrayList()
             }
@@ -66,7 +76,7 @@ object Model
             for(inforplayer1 in inforPlayer)
             {
                 var name = inforplayer1.getElementsByTag("a")[0].attr("title").toString()
-                var imgUrl = inforplayer1.getElementsByTag("a")[0].getElementsByTag("pk-identifier")[0].getElementsByTag("span")[0].getElementsByTag("pk-avatar")[0].absUrl("https://img.uefa.com/imgml/TP/players/3/2020/324x324/250055899.jpg")
+                var imgUrl = inforplayer1.getElementsByTag("a")[0].getElementsByTag("pk-identifier")[0].getElementsByTag("span")[0].getElementsByTag("pk-avatar")[0].absUrl("src")
                 var number = inforplayer1.getElementsByTag("a")[0].getElementsByTag("pk-identifier")[0].getElementsByTag("span")[1].toString()
                 var position = when(i)
                 {
@@ -77,7 +87,7 @@ object Model
                     4 ->{"Coach"}
                     else ->"Coach"
                 }
-//                Log.e("Player", name +" "+imgUrl)
+               Log.e("Player", name +" "+imgUrl)
 
                 var player1:Player = Player(name,imgUrl,position,number)
                 listPlayers.add(player1)

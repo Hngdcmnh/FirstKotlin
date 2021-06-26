@@ -34,13 +34,13 @@ class RecyclerViewPlayerAdapter(var listPlayer: ArrayList<Player>):RecyclerView.
         var imagePlayer = v.findViewById<ImageView>(R.id.imdViewPlayer)
 
         var namePlayer = v.findViewById<TextView>(R.id.namePlayer)
-
+        var positionPlayer = v.findViewById<TextView>(R.id.positionPlayer)
 
         fun bindView(player: Player)
         {
+            positionPlayer.text = player.position
             namePlayer.text = player.name
-
-//            Picasso.get().load(player.imageUrl).into(imagePlayer)
+            Picasso.get().load(player.imageUrl).into(imagePlayer)
         }
         init {
             v

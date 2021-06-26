@@ -25,9 +25,8 @@ class Fragment_1 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var recyclerView : RecyclerView = view.findViewById(R.id.recyclerViewTeam)
-        var recyclerViewAdapter1 = RecyclerViewAdapter1(Model.listTeamSquad,{
-            (activity as MainActivity).passData(it)
-        })
+        var recyclerViewAdapter1 = RecyclerViewAdapter1(Model.listTeamSquad,{ (activity as MainActivity).passData(it) })
+
         /*if(recyclerViewAdapter1!=null )
         {
             Log.e("Key5"," ko null r")
