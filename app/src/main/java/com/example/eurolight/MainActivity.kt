@@ -8,11 +8,12 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import kotlin.concurrent.thread
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),Comunicator {
 
     lateinit var toggle: ActionBarDrawerToggle
 
@@ -39,8 +40,8 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
                 }
                 R.id.item2-> {
-                    var fragment_2 = Fragment_player()
-                    supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_2).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+//                    var fragment_2 = Fragment_player()
+//                    supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_2).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
                 }
                 R.id.item3-> Log.e("Key3","3")
             }
@@ -65,4 +66,17 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+    override fun passData(nameTeam: String) {
+        val bundle = Bundle()
+        bundle.putString("nameTeam",nameTeam)
+
+        val transaction = this.supportFragmentManager.beginTransaction()
+        val fragment_2 = Fragment_player()
+        fragment_2.arguments = bundle
+
+        transaction.replace(R.id.frl_main,fragment_2).addToBackStack(null).commit()
+    }
+
 }
+

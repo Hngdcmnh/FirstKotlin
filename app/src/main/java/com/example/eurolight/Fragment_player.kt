@@ -24,12 +24,10 @@ class Fragment_player : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
-
+        var nameTeam = arguments?.getString("nameTeam")
 
         var recyclerView : RecyclerView = view.findViewById(R.id.RecyclerViewPlayer)
-        var recyclerViewPlayerAdapter = RecyclerViewPlayerAdapter(Model.listTeamSquad[0].players)
+        var recyclerViewPlayerAdapter = RecyclerViewPlayerAdapter(Model.listTeamSquad[nameTeam?.toInt()!!].players)
 
         var linearLayoutManager = LinearLayoutManager(this.context)
 

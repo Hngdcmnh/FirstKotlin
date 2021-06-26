@@ -24,7 +24,9 @@ class RecyclerViewPlayerAdapter(var listPlayer: ArrayList<Player>):RecyclerView.
 
     override fun onBindViewHolder(holder: ViewHolderPlayer, position: Int) {
         var player1 = listPlayer[position]
+        v.setOnClickListener{
 
+        }
         holder.bindView(player1)
     }
 

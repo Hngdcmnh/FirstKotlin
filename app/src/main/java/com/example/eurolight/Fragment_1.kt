@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso
 
 class Fragment_1 : Fragment() {
 
+    private lateinit var comunicator: Comunicator
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -23,9 +24,10 @@ class Fragment_1 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         var recyclerView : RecyclerView = view.findViewById(R.id.recyclerViewTeam)
-        var recyclerViewAdapter1 = RecyclerViewAdapter1(Model.listTeamSquad)
+        var recyclerViewAdapter1 = RecyclerViewAdapter1(Model.listTeamSquad,{
+            (activity as MainActivity).passData(it)
+        })
         /*if(recyclerViewAdapter1!=null )
         {
             Log.e("Key5"," ko null r")
@@ -35,4 +37,13 @@ class Fragment_1 : Fragment() {
         recyclerView.adapter =recyclerViewAdapter1
         recyclerView.layoutManager =linearLayoutManager
     }
+
+    /*override fun passData2(nameTeam2: String) {
+        (activity as MainActivity).passData(nameTeam2)
+    }*/
+
+    /*override fun passData2(nameTeam2: String) {
+        comunicator = activity as MainActivity
+        comunicator.passData(nameTeam2)
+    }*/
 }

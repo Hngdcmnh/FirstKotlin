@@ -7,14 +7,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlin.concurrent.thread
 
-class RecyclerViewAdapter1(var listTeam :ArrayList<TeamSquad>):RecyclerView.Adapter<RecyclerViewAdapter1.ViewHolder>(){
+class RecyclerViewAdapter1(var listTeam :ArrayList<TeamSquad>,val comunity : (teamName: String) -> Unit  ):RecyclerView.Adapter<RecyclerViewAdapter1.ViewHolder>() {
     lateinit var v:View
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-         v= LayoutInflater.from(parent.context).inflate(R.layout.item_team,parent,false)
+        v= LayoutInflater.from(parent.context).inflate(R.layout.item_team,parent,false)
+
         return ViewHolder(v)
     }
 
@@ -28,10 +31,15 @@ class RecyclerViewAdapter1(var listTeam :ArrayList<TeamSquad>):RecyclerView.Adap
         var team1 = listTeam[position]
         holder.bindView(team1)
 
+
         v.setOnClickListener{
-            Log.e("Keyy",listTeam[position].name)
+            Log.e("Keyy",listTeam[position].players.toString())
 
+            comunity(position.toString())
+//            comunity.passData2(position.toString())
 
+            /*comunicator2 = Fragment() as Fragment_1
+            comunicator2.passData2(position.toString())*/
         }
     }
 
@@ -53,4 +61,6 @@ class RecyclerViewAdapter1(var listTeam :ArrayList<TeamSquad>):RecyclerView.Adap
 
 
 }
+
+
 
