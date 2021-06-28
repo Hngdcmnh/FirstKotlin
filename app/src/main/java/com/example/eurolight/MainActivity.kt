@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity(),Comunicator {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        var fragment_2 = FragmentMatch()
-        supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_2).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+        var fragment_1 = FragmentTeam()
+        supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
         navView.setNavigationItemSelectedListener {
             when(it.itemId)
             {

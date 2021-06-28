@@ -2,12 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/iteamMatch"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="120dp"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
     android:background="@drawable/rounded_conner_4"
-    android:elevation="2dp"
+    android:elevation="3dp"
     >
 
     <ImageView
@@ -17,9 +18,10 @@
         android:layout_gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintHorizontal_bias="0.868"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32"></ImageView>
 
     <ImageView
         android:id="@+id/imgViewMatch2"
@@ -29,10 +31,10 @@
         android:layout_marginLeft="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintHorizontal_bias="0.082"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.466"></ImageView>
+        app:layout_constraintVertical_bias="0.32"></ImageView>
 
     <TextView
         android:id="@+id/matchHour"
@@ -58,6 +60,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.328"></TextView>
+
+    <TextView
+        android:id="@+id/nameTeam2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgViewMatch2"
+        app:layout_constraintVertical_bias="0.571"></TextView>
+
+    <TextView
+        android:id="@+id/nameTeam1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right
+"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgViewMatch1"
+        app:layout_constraintVertical_bias="0.571"></TextView>
+
+    <ImageView
+        android:id="@+id/iconCheck"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/iteamMatch"
+        app:layout_constraintTop_toTopOf="@+id/iteamMatch"
+        android:layout_marginRight="0dp"
+        android:visibility="gone"
+        android:background="@drawable/ic_baseline_check_circle_outline_24"
+        ></ImageView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

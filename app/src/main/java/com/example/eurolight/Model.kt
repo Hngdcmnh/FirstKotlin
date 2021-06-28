@@ -11,17 +11,18 @@ object Model
 
     fun getData()
     {
-        getAllTeam()
+        getAllTeamC1()
         getTeamSquad()
         getMatchRound16()
 
     }
 
-    fun getAllTeam() {
-        val doc = Jsoup.connect("https://www.uefa.com/uefaeuro-2020/teams/").get()
+    fun getAllTeamEuro() {
+        var doc = Jsoup.connect("https://www.uefa.com/uefaeuro-2020/teams/").get()
 
-        val teamWrapper = doc.getElementsByClass("teams-overview_teams-wrapper")[0]
-        val listTeam = teamWrapper.getElementsByClass("team team-is-team")
+        var teamWrapper = doc.getElementsByClass("teams-overview_teams-wrapper")[1]
+
+        var listTeam = teamWrapper.getElementsByClass("team team-is-team")
 
         var x =0
         for(team in listTeam)
@@ -41,6 +42,36 @@ object Model
 
 
     }
+
+    fun getAllTeamC1() {
+        var doc = Jsoup.connect("https://www.uefa.com/uefachampionsleague/clubs/").get()
+
+        var teamWrapper = doc.getElementsByClass("box-content clearfix")[1].getElementsByClass("teams-overview_group")[1].getElementsByTag("fieldset")[0].getElementsByClass("teams-overview_teams-wrapper")[0]
+
+        var listTeam = teamWrapper.getElementsByClass("team team-is-club")
+
+//        Log.e("Keyy",listTeam.size.toString())
+        var x =0
+        for(team in listTeam)
+        {
+            val name :String = team.getElementsByTag("a")[0].getElementsByTag("img")[0].attr("title")
+            Log.e("Key1",name )
+            val flagUrl :String = team.getElementsByTag("a")[0].getElementsByTag("img")[0].getElementsByTag("img")[0].absUrl("data-srcset").toString()
+//            Log.e("Key2",flagUrl)
+//            var list1:ArrayList<Player> = getTeamSquad(name)
+            var list1:ArrayList<Player> = ArrayList()
+
+            this.listTeam.add(Team(name,list1,flagUrl))
+            Log.e("Key3",x.toString())
+            x++
+            if(x==17) break
+        }
+    }
+
+
+
+
+
 
     fun getTeamSquad() {
         for(team1 in listTeam)
@@ -64,7 +95,12 @@ object Model
                 "Switzerland"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/128--switzerland/")}
                 "Ukraine"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/57166--ukraine/")}
                 "Wales"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/144--wales/")}
-
+                "AFC Ajax"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/144--wales/")}
+                "Ararat-Armenia FC"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/57166--ukraine/")}
+                "FC Astana"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/128--switzerland/")}
+                "Atalanta BC"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/95--netherlands/")}
+                "Club Atlético de Madrid"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/58837--czech-republic/")}
+                "FC Barcelona"->{getPlayerFromWeb("https://www.uefa.com/uefaeuro-2020/teams/35--denmark/")}
                 else -> ArrayList()
             }
         }
@@ -106,6 +142,46 @@ object Model
         return listPlayers
     }
 
+    fun getPlayerC1FromWeb(webUrl:String): ArrayList<Player> {
+        var listPlayers :ArrayList<Player> = ArrayList()
+        val doc = Jsoup.connect(webUrl).get()
+        val allPlayers = doc.getElementsByClass("squad--team-wrap ")[0].getElementsByClass("squad--team-list")
+//        val goalkeeper = allPlayers[0]
+//        val defender = allPlayers.getElementsByClass("")[1]
+//        val midfielder = allPlayers.getElementsByClass("")[2]
+//        val forward = allPlayers.getElementsByClass("")[3]
+//        val coach = allPlayers.getElementsByClass("")[4]
+        for(i in 0..3)
+        {
+            var inforPlayer = allPlayers[i].getElementsByClass("squad--team-player")
+            for(inforplayer1 in inforPlayer)
+            {
+                var name = inforplayer1.getElementsByTag("a")[0].attr("title").toString()
+                var imgUrl = inforplayer1.getElementsByTag("a")[0].getElementsByTag("img")[0].attr("src").toString()
+//                var number = inforplayer1.getElementsByTag("a")[0].getElementsByTag("pk-identifier")[0].getElementsByTag("span")[1].toString()
+                Log.e("Key5",imgUrl)
+                var number ="1"
+                var position = when(i)
+                {
+                    0 ->{"Goalkeeper"}
+                    1 ->{"Defender"}
+                    2 ->{"Midfielder"}
+                    3 ->{"Forward"}
+                    4 ->{"Coach"}
+                    else ->"Coach"
+                }
+//               Log.e("Player", name +" "+imgUrl)
+
+                var player1:Player = Player(name,imgUrl,position,number)
+                listPlayers.add(player1)
+            }
+
+        }
+        return listPlayers
+    }
+
+
+
     fun getTeamHasName(nameTeam:String) :Team
     {
         var teamX = Team()
@@ -118,10 +194,10 @@ object Model
 
     fun getMatchRound16()
     {
-        listMatch.add(Match(listTeam[15],listTeam[4],"26/6/2021","23h:00"))
+//        listMatch.add(Match(listTeam[15],listTeam[4],"26/6/2021","23h:00"))
         listMatch.add(Match(listTeam[8],listTeam[0],"27/6/2021","2h:00"))
         listMatch.add(Match(listTeam[9],listTeam[3],"27/6/2021","23h:00"))
-        listMatch.add(Match(listTeam[1],listTeam[10],"28/6/2021","2h:00"))
+//        listMatch.add(Match(listTeam[1],listTeam[10],"28/6/2021","2h:00"))
         listMatch.add(Match(listTeam[2],listTeam[11],"28/6/2021","23h:00"))
         listMatch.add(Match(listTeam[6],listTeam[13],"29/6/2021","2h:00"))
         listMatch.add(Match(listTeam[5],listTeam[7],"29/6/2021","23h:00"))
