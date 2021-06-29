@@ -1,5 +1,6 @@
 package com.example.eurolight
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -31,21 +32,20 @@ class FragmentMatch : Fragment(),MatchListener {
 
 
         buttonAddtoWatchList.setOnClickListener{
-            if(buttonAddtoWatchList.visibility==View.GONE)
-            {
-                buttonAddtoWatchList.visibility=View.VISIBLE
-            }
-            else
+            if(buttonAddtoWatchList.visibility==View.VISIBLE)
             {
                 buttonAddtoWatchList.visibility=View.GONE
             }
 
             for(match in recyclerViewAdapter.getSelectedMatchs()) {
                 if (match.isSelected) {
+                    Model.myMatchs.add(match)
                     match.isSelected = false
                 }
             }
+
         }
+
     }
 
     override fun onMatchAction(isSelected: Boolean) {
@@ -58,6 +58,8 @@ class FragmentMatch : Fragment(),MatchListener {
             buttonAddtoWatchList.visibility=View.GONE
         }
     }
+
+
 
 
 }

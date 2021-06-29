@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/myList"
+    android:orientation="vertical"
+    android:layout_weight="92"
+    android:background="#DCDCDC"
+    >
+
+    <TextView
+        android:id="@+id/txtv_myMatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_conner_21"
+        android:text="My Match"
+        android:textSize="35dp"
+        android:paddingRight="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:elevation="3dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMyMatch"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_conner_21"
+        android:layout_weight="70"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/txtv_myTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_conner_22"
+        android:text="My Team"
+        android:textSize="35dp"
+        android:layout_marginTop="35dp"
+        android:layout_weight="1"
+        android:layout_gravity="right"
+        android:paddingLeft="15dp"
+        android:elevation="3dp"
+
+         />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMyTeam"
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+
+        android:layout_weight="20"
+        android:background="@drawable/rounded_conner_22"
+        android:layout_marginBottom="20dp"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+
+
+</LinearLayout>

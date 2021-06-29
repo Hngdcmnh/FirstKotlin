@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity(),Comunicator {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        var fragment_1 = FragmentTeam()
-        supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_1).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+        var fragment_main = FragmentMain()
+        supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_main).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
         navView.setNavigationItemSelectedListener {
             when(it.itemId)
             {
@@ -42,7 +42,11 @@ class MainActivity : AppCompatActivity(),Comunicator {
                     var fragment_2 = FragmentMatch()
                     supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_2).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
                 }
-                R.id.item3-> Log.e("Key3","3")
+                R.id.item3-> {
+                    var fragment_3 = FragmentMylist()
+                    supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_3).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+
+                }
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true

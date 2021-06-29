@@ -8,6 +8,7 @@ object Model
 
     var listTeam: ArrayList<Team> = ArrayList()
     var listMatch:ArrayList<Match> = ArrayList()
+    var myMatchs:ArrayList<Match> = ArrayList()
 
     fun getData()
     {

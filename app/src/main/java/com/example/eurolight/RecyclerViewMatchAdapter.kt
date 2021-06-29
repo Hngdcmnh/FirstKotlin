@@ -97,7 +97,6 @@ class RecyclerViewMatchAdapter(var listMatch:ArrayList<Match>, var matchListener
 
         init{
             v
-
         }
 
 
