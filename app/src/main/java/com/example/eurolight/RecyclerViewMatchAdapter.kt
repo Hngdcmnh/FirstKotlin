@@ -62,16 +62,16 @@ class RecyclerViewMatchAdapter(var listMatch:ArrayList<Match>, var matchListener
             nameTeam1.text = match.team1.name
             nameTeam2.text = match.team2.name
 
-            if(match.isSelected)
-            {
-                backGround.setBackgroundResource(R.drawable.item_match_selected)
-                iconCheck.setVisibility(View.VISIBLE)
-            }
-            else
+            if(!match.isSelected)
             {
                 backGround.setBackgroundResource(R.drawable.rounded_conner_4)
                 iconCheck.setVisibility(View.GONE)
             }
+//            else
+//            {
+//                backGround.setBackgroundResource(R.drawable.rounded_conner_4)
+//                iconCheck.setVisibility(View.VISIBLE)
+//            }
 
             backGround.setOnClickListener(View.OnClickListener(){
                 if(match.isSelected)

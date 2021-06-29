@@ -30,7 +30,6 @@ class FragmentMatch : Fragment(),MatchListener {
         recyclerView.adapter= recyclerViewAdapter
         recyclerView.layoutManager = linearLayoutManager
 
-
         buttonAddtoWatchList.setOnClickListener{
             if(buttonAddtoWatchList.visibility==View.VISIBLE)
             {
@@ -43,9 +42,9 @@ class FragmentMatch : Fragment(),MatchListener {
                     match.isSelected = false
                 }
             }
+            recyclerViewAdapter.notifyDataSetChanged()
 
         }
-
     }
 
     override fun onMatchAction(isSelected: Boolean) {
