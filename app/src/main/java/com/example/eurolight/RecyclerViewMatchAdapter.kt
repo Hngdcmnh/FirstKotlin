@@ -51,7 +51,7 @@ class RecyclerViewMatchAdapter(var listMatch:ArrayList<Match>, var matchListener
         var nameTeam1 = v.findViewById<TextView>(R.id.nameTeam1)
         var nameTeam2 = v.findViewById<TextView>(R.id.nameTeam2)
         var backGround = v.findViewById<ConstraintLayout>(R.id.iteamMatch)
-        var iconCheck = v.findViewById<ImageView>(R.id.iconCheck)
+//        var iconCheck = v.findViewById<ImageView>(R.id.iconCheck)
         var z= matchListener
         fun bindView(match:Match)
         {
@@ -65,7 +65,7 @@ class RecyclerViewMatchAdapter(var listMatch:ArrayList<Match>, var matchListener
             if(!match.isSelected)
             {
                 backGround.setBackgroundResource(R.drawable.rounded_conner_4)
-                iconCheck.setVisibility(View.GONE)
+//                iconCheck.setVisibility(View.GONE)
             }
 //            else
 //            {
@@ -77,14 +77,14 @@ class RecyclerViewMatchAdapter(var listMatch:ArrayList<Match>, var matchListener
                 if(match.isSelected)
                 {
                     backGround.setBackgroundResource(R.drawable.rounded_conner_4)
-                    iconCheck.setVisibility(View.GONE)
+//                    iconCheck.setVisibility(View.GONE)
                     match.isSelected=false
                     z.onMatchAction(false)
                 }
                 else
                 {
                     backGround.setBackgroundResource(R.drawable.item_match_selected)
-                    iconCheck.setVisibility(View.VISIBLE)
+//                    iconCheck.setVisibility(View.VISIBLE)
                     match.isSelected=true
                     z.onMatchAction(true)
                 }

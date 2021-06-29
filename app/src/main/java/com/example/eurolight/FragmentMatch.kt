@@ -38,8 +38,12 @@ class FragmentMatch : Fragment(),MatchListener {
 
             for(match in recyclerViewAdapter.getSelectedMatchs()) {
                 if (match.isSelected) {
-                    Model.myMatchs.add(match)
+//                    for(match1 in Model.myMatchs)
+//                    {
+//                        if(match1== match) break@loop
+//                    }
                     match.isSelected = false
+                    Model.myMatchs.add(match)
                 }
             }
             recyclerViewAdapter.notifyDataSetChanged()
