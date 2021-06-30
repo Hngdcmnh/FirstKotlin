@@ -1,15 +1,15 @@
-package com.example.eurolight
+package com.example.eurolight.Fragment
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.constraintlayout.solver.state.State
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.example.eurolight.MatchListener
+import com.example.eurolight.Object.Match
+import com.example.eurolight.R
 import com.squareup.picasso.Picasso
 
 class RecyclerViewMatchAdapter(var listMatch:ArrayList<Match>, var matchListener: MatchListener): RecyclerView.Adapter<RecyclerViewMatchAdapter.ViewHolderMatch>() {
@@ -17,16 +17,16 @@ class RecyclerViewMatchAdapter(var listMatch:ArrayList<Match>, var matchListener
     override fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
-    ): RecyclerViewMatchAdapter.ViewHolderMatch {
+    ): ViewHolderMatch {
         v = LayoutInflater.from(parent.context).inflate(R.layout.item_match, parent, false)
-        return ViewHolderMatch(v,matchListener)
+        return ViewHolderMatch(v, matchListener)
     }
 
     override fun getItemCount(): Int {
         return listMatch.size
     }
 
-    override fun onBindViewHolder(holder: RecyclerViewMatchAdapter.ViewHolderMatch, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolderMatch, position: Int) {
         var match1 = listMatch[position]
         holder.bindView(match1)
 
@@ -51,9 +51,9 @@ class RecyclerViewMatchAdapter(var listMatch:ArrayList<Match>, var matchListener
         var nameTeam1 = v.findViewById<TextView>(R.id.nameTeam1)
         var nameTeam2 = v.findViewById<TextView>(R.id.nameTeam2)
         var backGround = v.findViewById<ConstraintLayout>(R.id.iteamMatch)
-//        var iconCheck = v.findViewById<ImageView>(R.id.iconCheck)
+        var iconCheck = v.findViewById<ImageView>(R.id.iconCheck)
         var z= matchListener
-        fun bindView(match:Match)
+        fun bindView(match: Match)
         {
             Picasso.get().load(match.team1.FlagUrl).into(imgTeam1)
             Picasso.get().load(match.team2.FlagUrl).into(imgTeam2)
@@ -65,7 +65,7 @@ class RecyclerViewMatchAdapter(var listMatch:ArrayList<Match>, var matchListener
             if(!match.isSelected)
             {
                 backGround.setBackgroundResource(R.drawable.rounded_conner_4)
-//                iconCheck.setVisibility(View.GONE)
+                iconCheck.setVisibility(View.GONE)
             }
 //            else
 //            {
@@ -77,14 +77,14 @@ class RecyclerViewMatchAdapter(var listMatch:ArrayList<Match>, var matchListener
                 if(match.isSelected)
                 {
                     backGround.setBackgroundResource(R.drawable.rounded_conner_4)
-//                    iconCheck.setVisibility(View.GONE)
+                    iconCheck.setVisibility(View.GONE)
                     match.isSelected=false
                     z.onMatchAction(false)
                 }
                 else
                 {
                     backGround.setBackgroundResource(R.drawable.item_match_selected)
-//                    iconCheck.setVisibility(View.VISIBLE)
+                    iconCheck.setVisibility(View.VISIBLE)
                     match.isSelected=true
                     z.onMatchAction(true)
                 }

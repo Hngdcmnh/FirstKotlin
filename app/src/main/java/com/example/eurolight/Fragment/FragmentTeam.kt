@@ -1,4 +1,4 @@
-package com.example.eurolight
+package com.example.eurolight.Fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.eurolight.*
 
 
 class FragmentTeam : Fragment() {
@@ -22,7 +23,7 @@ class FragmentTeam : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var recyclerView : RecyclerView = view.findViewById(R.id.recyclerViewTeam)
-        var recyclerViewAdapter1 = RecyclerViewTeamAdapter(Model.listTeam,{ (activity as MainActivity).passData(it) })
+        var recyclerViewAdapter1 = RecyclerViewTeamAdapter(Model.listTeam, { (activity as MainActivity).passData(it) })
 
         /*if(recyclerViewAdapter1!=null )
         {

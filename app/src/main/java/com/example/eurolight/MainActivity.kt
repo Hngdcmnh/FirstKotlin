@@ -2,12 +2,12 @@ package com.example.eurolight
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentTransaction
+import com.example.eurolight.Fragment.*
 import com.google.android.material.navigation.NavigationView
 import kotlin.concurrent.thread
 
@@ -28,8 +28,12 @@ class MainActivity : AppCompatActivity(),Comunicator {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        var fragment_main = FragmentMain()
-        supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_main).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+
+        // Set the first Fragment what you see when run app
+        var fragment_4 = FragmentNews()
+        supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_4).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+
+        // Change between 3 Fragments
         navView.setNavigationItemSelectedListener {
             when(it.itemId)
             {
@@ -45,7 +49,10 @@ class MainActivity : AppCompatActivity(),Comunicator {
                 R.id.item3-> {
                     var fragment_3 = FragmentMylist()
                     supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_3).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
-
+                }
+                R.id.item4-> {
+                    var fragment_4 = FragmentNews()
+                    supportFragmentManager.beginTransaction().replace(R.id.frl_main,fragment_4).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
                 }
             }
             drawerLayout.closeDrawer(GravityCompat.START)
@@ -53,6 +60,7 @@ class MainActivity : AppCompatActivity(),Comunicator {
         }
     }
 
+    // Toggle is the ||| button in the top left of actionbar
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if(toggle.onOptionsItemSelected(item))
@@ -62,14 +70,15 @@ class MainActivity : AppCompatActivity(),Comunicator {
         return super.onOptionsItemSelected(item)
     }
 
+    //other thread for load data
     fun loadData()
     {
         thread {
             Model.getData()
-
         }
     }
 
+    // pass data (name of team) from Fragment Team -> Fragment Player
     override fun passData(nameTeam: String) {
         val bundle = Bundle()
         bundle.putString("nameTeam",nameTeam)

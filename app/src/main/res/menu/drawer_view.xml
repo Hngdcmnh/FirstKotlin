@@ -4,6 +4,10 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/item4"
+            android:title="Latest News"
+            />
+        <item
             android:id="@+id/item1"
             android:title="Teams and players"
             />

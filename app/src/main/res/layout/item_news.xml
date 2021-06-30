@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:paddingRight="20dp"
+    android:layout_marginTop="20dp"
+    android:paddingLeft="20dp"
+    >
+
+    <ImageView
+        android:id="@+id/imgv_news"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/txtv_news"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Hot news"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="20dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imgv_news"
+        tools:layout_editor_absoluteX="20dp"></TextView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

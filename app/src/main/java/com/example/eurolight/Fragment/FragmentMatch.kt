@@ -1,6 +1,5 @@
-package com.example.eurolight
+package com.example.eurolight.Fragment
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,8 +8,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.eurolight.MatchListener
+import com.example.eurolight.Model
+import com.example.eurolight.R
 
-class FragmentMatch : Fragment(),MatchListener {
+class FragmentMatch : Fragment(), MatchListener {
 
     lateinit var buttonAddtoWatchList : Button
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -23,7 +25,7 @@ class FragmentMatch : Fragment(),MatchListener {
         super.onViewCreated(view, savedInstanceState)
         buttonAddtoWatchList = view.findViewById(R.id.btn_addToWatchList)
         var recyclerView : RecyclerView = view.findViewById(R.id.recyclerViewMatch)
-        var recyclerViewAdapter = RecyclerViewMatchAdapter(Model.listMatch,this)
+        var recyclerViewAdapter = RecyclerViewMatchAdapter(Model.listMatch, this)
 
         var linearLayoutManager = LinearLayoutManager(this.context)
 
@@ -38,10 +40,6 @@ class FragmentMatch : Fragment(),MatchListener {
 
             for(match in recyclerViewAdapter.getSelectedMatchs()) {
                 if (match.isSelected) {
-//                    for(match1 in Model.myMatchs)
-//                    {
-//                        if(match1== match) break@loop
-//                    }
                     match.isSelected = false
                     Model.myMatchs.add(match)
                 }

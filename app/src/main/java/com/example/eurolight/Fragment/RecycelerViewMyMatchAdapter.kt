@@ -1,18 +1,19 @@
-package com.example.eurolight
+package com.example.eurolight.Fragment
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.example.eurolight.Object.Match
+import com.example.eurolight.R
 import com.squareup.picasso.Picasso
 
 class RecyclerViewMyMatchAdapter(var listMyMatch :ArrayList<Match>):RecyclerView.Adapter<RecyclerViewMyMatchAdapter.ViewHolder>() {
     lateinit var v: View
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewMyMatchAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         v = LayoutInflater.from(parent.context).inflate(R.layout.item_match, parent, false)
         return ViewHolder(v)
     }
@@ -36,7 +37,7 @@ class RecyclerViewMyMatchAdapter(var listMyMatch :ArrayList<Match>):RecyclerView
         var nameTeam2 = v.findViewById<TextView>(R.id.nameTeam2)
         var backGround = v.findViewById<ConstraintLayout>(R.id.iteamMatch)
         var iconCheck = v.findViewById<ImageView>(R.id.iconCheck)
-        fun bindView(match:Match)
+        fun bindView(match: Match)
         {
             Picasso.get().load(match.team1.FlagUrl).into(imgTeam1)
             Picasso.get().load(match.team2.FlagUrl).into(imgTeam2)

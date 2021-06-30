@@ -1,4 +1,4 @@
-package com.example.eurolight
+package com.example.eurolight.Fragment
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.eurolight.Object.Team
+import com.example.eurolight.R
 import com.squareup.picasso.Picasso
 
 class RecyclerViewTeamAdapter(var listTeam :ArrayList<Team>, val comunity : (teamName: String) -> Unit  ):RecyclerView.Adapter<RecyclerViewTeamAdapter.ViewHolder>() {
@@ -44,7 +46,7 @@ class RecyclerViewTeamAdapter(var listTeam :ArrayList<Team>, val comunity : (tea
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v){
         var imgView = v.findViewById<ImageView>(R.id.imgViewItem)
         var teamName = v.findViewById<TextView>(R.id.nameCountry)
-        fun bindView(team1:Team)
+        fun bindView(team1: Team)
         {
             teamName.text =team1.name
             Picasso.get().load(team1.FlagUrl).into(imgView)

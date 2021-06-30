@@ -7,63 +7,90 @@
     android:id="@+id/myList"
     android:orientation="vertical"
     android:layout_weight="92"
-    android:background="#DCDCDC"
+    android:background="@drawable/cpl_2"
     >
 
-    <TextView
-        android:id="@+id/txtv_myMatch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_conner_21"
-        android:text="My Match"
-        android:textSize="35dp"
-        android:textColor="#FFFFFF"
-        android:paddingRight="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:elevation="3dp"
-        />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewMyMatch"
-        android:layout_marginRight="20dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_conner_21"
         android:layout_weight="70"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        ></androidx.recyclerview.widget.RecyclerView>
+        >
 
-    <TextView
-        android:id="@+id/txtv_myTeam"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_conner_22"
-        android:text="My Team"
-        android:textSize="35dp"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="35dp"
-        android:layout_weight="1"
-        android:layout_gravity="right"
-        android:paddingLeft="15dp"
-        android:elevation="3dp"
+        <TextView
+            android:id="@+id/txtv_myMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_conner_21"
+            android:elevation="3dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="My Match"
+            android:textColor="#FFFFFF"
+            android:textSize="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.061" />
 
-         />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewMyMatch"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="60dp"
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewMyTeam"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"></androidx.recyclerview.widget.RecyclerView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="21">
 
-        android:layout_weight="20"
-        android:background="@drawable/rounded_conner_22"
-        android:layout_marginBottom="20dp"
-        ></androidx.recyclerview.widget.RecyclerView>
+        <TextView
+            android:id="@+id/txtv_myTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:background="@drawable/rounded_conner_21"
+            android:elevation="3dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="My Team"
+            android:textColor="#FFFFFF"
+            android:textSize="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.137" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewMyTeam"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="50dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            ></androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

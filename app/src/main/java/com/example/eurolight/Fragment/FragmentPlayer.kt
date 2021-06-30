@@ -1,4 +1,4 @@
-package com.example.eurolight
+package com.example.eurolight.Fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.eurolight.Model
+import com.example.eurolight.R
 
 
 class FragmentPlayer : Fragment() {

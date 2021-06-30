@@ -1,4 +1,4 @@
-package com.example.eurolight
+package com.example.eurolight.Object
 
 class Match {
     lateinit var team1: Team
@@ -9,7 +9,7 @@ class Match {
 
     constructor()
 
-    constructor(team1:Team,team2:Team,MatchDay :String,MatchHour:String)
+    constructor(team1: Team, team2: Team, MatchDay :String, MatchHour:String)
     {
         this.team1 = team1
         this.team2 = team2

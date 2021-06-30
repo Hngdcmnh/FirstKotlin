@@ -1,4 +1,4 @@
-package com.example.eurolight
+package com.example.eurolight.Object
 
 class Team {
     lateinit var name: String
@@ -9,7 +9,7 @@ class Team {
     {
 
     }
-    constructor(name: String,players:ArrayList<Player>, FlagUrl: String) {
+    constructor(name: String, players:ArrayList<Player>, FlagUrl: String) {
 
         this.name = name
         this.players=players
